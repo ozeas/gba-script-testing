@@ -31,7 +31,7 @@ jobs:
             echo "${{ env.environment_type }}"
             
         - name: Testing actions
-          uses: ozeas/action-testing@v1.2
+          uses: actions/action-testing@v1.2
           with:
             who-to-greet: 'Mona the Octocat'
             
