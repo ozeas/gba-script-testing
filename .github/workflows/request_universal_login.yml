@@ -28,4 +28,4 @@ jobs:
 
         - name: Print environment_type defined
           run: |
-            echo "${{ github.ref }}"
+            echo "${{ env.environment_type }}"
