@@ -1,0 +1,31 @@
+name: Request Universal Login Auth0
+
+on:
+  push:
+    branches: [master, develop, homolog]
+
+
+jobs:
+  update_universal_login:
+    name: Update Universal Login
+    runs-on: ubuntu-latest
+
+    steps:
+        - name: Set env to develop
+          if: endsWith(github.ref, '/develop')
+          run: |
+            echo "environment_type=develop" >> $GITHUB_ENV
+
+        - name: Set env to homolog
+          if: endsWith(github.ref, '/homolog')
+          run: |
+            echo "environment_type=homolog" >> $GITHUB_ENV
+
+        - name: Set env to production
+          if: endsWith(github.ref, '/master')
+          run: |
+            echo "environment_type=production" >> $GITHUB_ENV
+
+        - name: Print environment_type defined
+          run: |
+            echo "${{ github.ref }}"
