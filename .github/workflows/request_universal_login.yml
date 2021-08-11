@@ -35,10 +35,5 @@ jobs:
           run: |
             echo "${{ env.environment_type }}"
             
-        - name: Testing actions
-          uses: actions/action-testing@v1.2
-          with:
-            who-to-greet: 'Mona the Octocat'
-            
         - name: Get the output time
           run: echo "The time was ${{ steps.hello.outputs.time }}"
